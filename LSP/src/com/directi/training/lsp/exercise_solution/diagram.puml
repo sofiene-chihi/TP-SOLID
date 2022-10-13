@@ -1,0 +1,21 @@
+@startuml LSP New
+Interface Duck {
+    void quack() throws Exception
+    void swim() throws Exception
+    }
+
+class ElectronicDuck {
+    void quack() throws DuckOffExeption
+    void swim() throws DuckOffExeption
+    void turnOn()
+    void turnOff()
+}
+
+class RealDuck{
+    void quack()
+    void swim()
+}
+
+Duck <|-- ElectronicDuck
+Duck <|-- RealDuck
+@enduml

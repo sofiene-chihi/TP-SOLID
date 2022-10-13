@@ -1,0 +1,19 @@
+@startuml OCP New
+Interface Resource {
+    void markFree(int)
+    void markBusy(int)
+    int findFree()
+
+}
+class TimeSlot
+class SpaceSlot
+
+class ResourceAllocator {
+    int allocate(Resource)
+    void free(Resource, int)
+}
+
+Resource <|.. TimeSlot
+Resource <|.. SpaceSlot
+Resource <.. ResourceAllocator : use
+@enduml

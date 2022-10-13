@@ -1,0 +1,34 @@
+@startuml ISP New
+Interface Door {
+    void lock()
+    void unlock()
+    void open()
+    void close()
+}
+Interface SensorService {
+    void proximityCallback()
+}
+
+Interface TimerService {
+    void timeOutCallback()
+}
+
+class SensingDoor
+class TimedDoor
+
+class Sensor {
+    void register(ISensingDoor)
+    boolean isPersonClose()
+}
+
+class Timer {
+    void register(long, final ITimedDoor)
+}
+
+SensorService <|.. SensingDoor
+TimerService <|.. TimedDoor
+Door <|.. SensingDoor
+Door <|.. TimedDoor
+Sensor <.. SensingDoor: use
+Timer <.. TimedDoor: use
+@enduml
